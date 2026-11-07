@@ -4,6 +4,14 @@ import playwright from 'eslint-plugin-playwright';
 
 export default [
   {
+    ignores: [
+      '**/node_modules/*',
+      'playwright.config.js',
+      '**/playwright-report/**',
+    ],
+  },
+  
+  {
     files: ['**/*.{js,mjs,cjs}'],
     ...js.configs.recommended,
     languageOptions: {
@@ -30,12 +38,5 @@ export default [
       ...playwright.configs['flat/recommended'].rules,
       'playwright/expect-expect': 'off',
     },
-  },
-  {
-    ignores: [
-      '**/node_modules/*',
-      'playwright.config.js',
-      '**/playwright-report/**',
-    ],
   },
 ];
